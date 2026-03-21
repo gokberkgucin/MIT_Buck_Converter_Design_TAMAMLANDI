@@ -37,9 +37,11 @@ Kaynak [1] ve [2]'deki Type-3 Compensator'lü bir kontrolcü sistemindeki, freka
 - $f_L < \dfrac{f_c}{10}$
 - $f_o$, $f_z$'den küçük, $f_L$'den büyük olacak.
 
+![Type-3 frekans iliskileri](./images/readme/type3_frequency_relations.png)
+
 Bu koşulları birleştirip, tüm frekansları yatay eksende, büyüklük sırasına göre sıraladım.
 
-![Frekans seçim kuralları](image.png)
+![Frekans siralamasi](./images/readme/frequency_ordering.png)
 
 Denklemi belli olan frekanslar, ve seçimini bizim yaptığımız parametreler var.
 
@@ -187,6 +189,8 @@ Bu parçada, kontrolcü tarafından getirilen frekans kısıtlarının güç kat
 
 Zaman alanında buck converter’ın tüm davranışını temsil eden bu denklemleri, LTSpice benzetim sonuçları ile denklemlerden birkaçını doğrulamaya çalışacağım.
 
+![Converter state equations](./images/readme/converter_state_equations.png)
+
 #### 4.1. ESR Etkisi
 
 #### 4.2. Genel Dalga-Biçimleri
@@ -195,7 +199,13 @@ Zaman alanında buck converter’ın tüm davranışını temsil eden bu denklem
 
 Amaç: Çıkış gerilimini sabit ve iyi kontrol edilmiş değerde tutmaktır.
 
+![Kontrol sistemi blok diyagrami](./images/readme/control_system_block.png)
+
 Küçük-işaret ac modeli kullandık.
+
+![Kapali cevrim ifade 1](./images/readme/closed_loop_expression_1.png)
+
+![Kapali cevrim ifade 2](./images/readme/closed_loop_expression_2.png)
 
 T(s) Kontrolcünün açık-cevrim transfer fonksiyonudur.
 
@@ -242,6 +252,8 @@ Bu parçada tezdeki kontrol yaklaşımının başlangıcı ve sensör kazancı h
 ```math
 G_{vd}(s)
 ```
+
+![Acik cevrim ifade](./images/readme/open_loop_expression.png)
 
 Control-to-Output:
 
@@ -299,6 +311,18 @@ Türetmelerini, cebirsel işlemleri atlayıp doğrudan ve ’yi veren denklemler
 53^\circ
 ```
 
+![Uncompensated loop ifade](./images/readme/uncompensated_loop_expression.png)
+
+![Uncompensated loop bode](./images/readme/uncompensated_loop_bode.png)
+
+![Lead compensator sekli](./images/readme/lead_compensator_shape.png)
+
+![Uncompensated loop gain 1](./images/readme/loop_gain_uncomp_1.jpg)
+
+![Uncompensated loop gain 2](./images/readme/loop_gain_uncomp_2.jpg)
+
+![Uncompensated loop gain 3](./images/readme/loop_gain_uncomp_3.jpg)
+
 Bu frekans değerlerini zaten bulmuştuk. Güç katında bunları dikkate alarak tasarım yapmıştık.
 
 Doğrudan denklemi yazarsak, Lead compensator’un DC kazancı:
@@ -321,6 +345,8 @@ seçmiştik. Pratik kural olarak fc’den en az 10 kat az olmalıydı. [1]
 
 Eklenen sıfır normal sıfırdan farklıdır, ‘inverted zero’ dur.
 
+![LAG compensator sekli](./images/readme/lag_compensator_shape.png)
+
 #### 5.4. PID Compensator Birleştirilmiş Hali
 
 #### 5.5. Op-amp ve Kutbu
@@ -328,6 +354,8 @@ Eklenen sıfır normal sıfırdan farklıdır, ‘inverted zero’ dur.
 Tasarımımızda kullandığımız, LT1215 op-amp’ın yüksek frekanslara doğru gidildikçe kazancını koruyamamasını temsil eden bir kutup ekleyeceğiz. bu kutup .
 
 Opampın yukarıdaki kazanç değerini 100kHz frekansına kadar verebildiğini, aşağıdaki voltage gain vs frequency grafiğinden görebiliyoruz.
+
+![Op-amp gain vs frequency](./images/readme/opamp_gain_frequency_docx.png)
 
 #### 5.6. Açık-Çevrim Transfer Fonksiyonu T(s)
 
@@ -341,9 +369,15 @@ f_c = 10.3\,\text{kHz}
 
 PM = 55 DERECE, Crossover frequency = 10.3kHz. Hedeflediğimiz gibi.
 
+![Final loop gain](./images/readme/final_loop_gain.png)
+
 Hesapladığımız Açık-Çevrim Transfer Fonksiyonu T(s)
 
+![T(s) blok diyagrami](./images/readme/t_of_s_block_diagram.png)
+
 Hesapladığımız T(s) aşağıdaki trasfer fonksiyonlarında kullanılacak.
+
+![Vhat ifadesi](./images/readme/vhat_expression.png)
 
 ### 6. Op-amp devresi -gerçeklemesi
 
@@ -451,11 +485,17 @@ Bu parçada Word belgesindeki denklem yerleşimi daha da bozulduğu için bazı 
 
 ### 7.3. Çıkış Gücü
 
+![125 W cikis gucu](./images/readme/output_power_125w.jpg)
+
+![55 W cikis gucu](./images/readme/output_power_55w.jpg)
+
 ### 7.4. Output Voltage (static requirement)
 
 ### 7.5. Output Voltage (transient limits)
 
 ### 7.6. Allowed output voltage ripple (p-p, any R load)
+
+![Cikis ripple](./images/readme/output_ripple.jpg)
 
 ### 7.7. Verimlilik
 
@@ -469,6 +509,12 @@ Bu bölümün iki temel amacı vardır:
 Bu yüzden, bulunan değerler olduğu gibi değiştirilmeden LTSPICE’da kullanılmıştır. Bu değerlerin benzetim sonuçları gösterilmiştir.
 
 İyileştirmeler yapmak pekâlâ mümkündür, kolaydır.
+
+![Op-amp gain frequency](./images/readme/opamp_gain_freq.jpg)
+
+![Gcs](./images/readme/gcs.jpg)
+
+![PID ile fl 2 kHz](./images/readme/pid_fl_2khz.jpg)
 
 Ek not:
 
