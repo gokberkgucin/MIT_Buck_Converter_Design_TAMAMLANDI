@@ -1,6 +1,6 @@
 # MIT Buck Converter Design
 
-Bu repo, MIT 6.622 Power Electronics Design Project kapsamindaki specifications'lari karsilamak uzere gelistirilmis birinci buck converter serbest projesine ait belge ve destek dosyalarini icerir.
+Bu repo, [MIT 6.622 Power Electronics Design Project](./G5_mit6_622_s23_designproj.pdf) kapsamindaki specifications'lari karsilamak uzere gelistirilmis birinci buck converter serbest projesine ait belge ve destek dosyalarini icerir.
 
 README, PDF raporunun yerine gecmez. Buradaki amac, calismanin neyi hedefledigini ve neyin dogrulandigini kisa bir ozet halinde sunmaktir.
 
