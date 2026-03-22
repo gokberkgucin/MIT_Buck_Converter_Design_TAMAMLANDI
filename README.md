@@ -22,6 +22,26 @@ Calisma, yalnizca devre kurulumunu gosteren bir proje notu degil; hedef specific
 - Minimum efficiency target: `90%`
 - Ambient temperature range: `-20 C` to `+50 C`
 
+## Specification Check
+
+Legend:
+- `✅` README seviyesinde ozetlenebilen veya raporda acikca karsilandigi belirtilen kosul
+- `🟡` Projede takip edilen kosul; ayrintili kanit PDF raporda
+
+| Requirement | Target | LTspice / Report Summary | Status | Evidence |
+|---|---|---|---|---|
+| Input voltage range | `24 V - 36 V` | Tasarim ve benzetim araligi olarak kullanildi | ✅ | Report Sec. `7.1` |
+| Input voltage transient limit | `44 V` for up to `1 ms` | Gereksinim olarak tanimlandi; ayrintili dogrulama PDF raporda | 🟡 | Report Sec. `7.1` |
+| Output power range | `50 W - 125 W` | LTspice ekran goruntulerinde yaklasik `49.60 W` ve `124.18 W` calisma noktalarina ulasildi | ✅ | Report Sec. `7.3` |
+| Output voltage static requirement | `14 V ± 3%` | Gosterilen kararlı durum dalga seklinde `Vout ≈ 13.95 V`, hedef aralik icinde | ✅ | Report Sec. `7.4` |
+| Output voltage transient limit | `14 V ± 20%` | Transient performansin specifications'i karsiladigi raporda belirtiliyor; ayrintili dalga sekli PDF'de | ✅ | Report Sec. `7.5` |
+| Allowed output voltage ripple | `100 mV p-p` | Gosterilen dalga seklinde yaklasik `37.38 mV p-p` ripple | ✅ | Report Sec. `7.6` |
+| Allowed input current ripple | `50 mA p-p` | Tasarim gereksinimi olarak takip edildi; ayrintili dalga sekli README'de ozetlenmedi | 🟡 | Report Sec. `7.1` / `7.8` |
+| Minimum efficiency target | `90%` | Verimlilik dogrulamasinin yapildigi ve specified requirements'in karsilandigi raporda belirtiliyor | ✅ | Report Sec. `7.7` / Abstract |
+| Ambient temperature range | `-20 C` to `+50 C` | Proje gereksinimi olarak tanimlandi; README'de ayri sicaklik analizi ozetlenmedi | 🟡 | Report Sec. `7.1` |
+
+Bu tablo, README seviyesinde kisa bir uygunluk ozetidir. Tam dalga sekilleri, hesap adimlari ve ekran goruntuleri ana PDF rapordadir.
+
 ## Bu Repoda Ne Var
 
 - MIT design-project gereksinimlerine gore gelistirilmis birinci buck converter calismasi
