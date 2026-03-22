@@ -42,6 +42,19 @@ Legend:
 
 Bu tablo, README seviyesinde kisa bir uygunluk ozetidir. Tam dalga sekilleri, hesap adimlari ve ekran goruntuleri ana PDF rapordadir.
 
+## Input-Side Scope Note
+
+Bu birinci projede ana odak, senkron buck guc katinin tasarimi, kontrolcu gelistirme sureci ve temel LTspice dogrulamalariydi. Bu nedenle input tarafina ait bazi gereksinimler kapsam disi birakilmamis olsa da, tasarimin birincil optimizasyon hedefleri olarak ele alinmadi.
+
+Ozellikle asagidaki input-side requirements icin bu ilk projede ozel bir input filter / front-end transient tasarimi yapilmadi:
+
+- Allowed input current ripple (p-p, ideal source): `50 mA`
+- Input voltage transient limit: `44 V` for up to `1 ms`
+- Allowed input peak-to-peak ripple voltage: `ΔV_IN,PP ≤ 0.24 V`
+- Allowed input transient undershoot or overshoot: `ΔV_IN,Tran ≤ 0.36 V`
+
+Bunun temel nedeni, bu ilk calismada odagin daha cok ogrenme, temel buck converter tasarim akisini kurma ve ana output-side requirements'i dogrulama olmasiydi. Input filter design ve input tarafindaki daha sik gereksinimlerin sistematik ele alinmasi, ikinci projede acik bir tasarim hedefi haline getirildi.
+
 ## Bu Repoda Ne Var
 
 - MIT design-project gereksinimlerine gore gelistirilmis birinci buck converter calismasi
