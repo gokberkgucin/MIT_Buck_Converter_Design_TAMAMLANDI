@@ -44,16 +44,20 @@ Bu tablo, README seviyesinde kisa bir uygunluk ozetidir. Tam dalga sekilleri, he
 
 ## Input-Side Scope Note
 
-Bu birinci projede ana odak, senkron buck guc katinin tasarimi, kontrolcu gelistirme sureci ve temel LTspice dogrulamalariydi. Bu nedenle input tarafina ait bazi gereksinimler kapsam disi birakilmamis olsa da, tasarimin birincil optimizasyon hedefleri olarak ele alinmadi.
+Bu birinci projede ana odak, senkron buck guc katinin tasarimi, kontrolcu gelistirme sureci ve temel LTspice dogrulamalariydi. Bu nedenle input tarafina ait bazi gereksinimler kapsam disi birakilmamis olsa da, bu gereksinimleri karsilamak icin ozel bir input-front-end optimizasyonu yapilmadi.
 
-Ozellikle asagidaki input-side requirements icin bu ilk projede ozel bir input filter / front-end transient tasarimi yapilmadi:
+Ozellikle asagidaki dort input-side requirement, birinci projede bilincli olarak takip edilse de tasarimin ana surucu hedefleri haline getirilmedi:
 
 - Allowed input current ripple (p-p, ideal source): `50 mA`
 - Input voltage transient limit: `44 V` for up to `1 ms`
 - Allowed input peak-to-peak ripple voltage: `ΔV_IN,PP ≤ 0.24 V`
 - Allowed input transient undershoot or overshoot: `ΔV_IN,Tran ≤ 0.36 V`
 
-Bunun temel nedeni, bu ilk calismada odagin daha cok ogrenme, temel buck converter tasarim akisini kurma ve ana output-side requirements'i dogrulama olmasiydi. Input filter design ve input tarafindaki daha sik gereksinimlerin sistematik ele alinmasi, ikinci projede acik bir tasarim hedefi haline getirildi.
+Bu tercih, bu gereksinimlerin onemsiz goruldugu anlamina gelmez. Tersine, bu gereksinimlerin ciddi bicimde ele alinmasi icin genellikle input filter design, input transient dayanimi ve kaynak tarafindaki ripple davranisinin ayri bir tasarim problemi olarak ele alinmasi gerekir.
+
+Birinci projede boyle bir karar alinmasinin temel nedeni, calismanin ogrenme odakli olmasiydi. O asamada amac, tum specifications'i en sik halleriyle kapatmaya calismaktan daha cok, temel buck converter tasarim akisini kurmak, guc kati ve kontrolcu hesaplarini ogrenmek ve ana output-side requirements'i dogrulamakti. Bu nedenle input-side requirements icin ozel bir filter / protection tasarimina gidilmedi.
+
+Bu dort gereksinim, ikinci buck converter projesinde artik acik tasarim hedefleri olarak ele alinmaktadir. Ozellikle input filter design bilgisi ve daha siki input-side specifications, ikinci projede sistematik olarak dahil edilmistir.
 
 ## Bu Repoda Ne Var
 
