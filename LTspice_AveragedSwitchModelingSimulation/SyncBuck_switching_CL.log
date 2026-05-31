@@ -1,0 +1,21 @@
+LTspice 26.0.1 for Windows
+Circuit: D:\TOPLANDIK\Power_electronics\MIT_Buck_Converter_Design_TAMAMLANDI\LTspice_AveragedSwitchModelingSimulation\SyncBuck_switching_CL.net
+Start Time: Mon Mar 23 01:33:19 2026
+Options:reltol=0.0005
+solver = Normal
+Maximum thread count: 8
+tnom = 27
+temp = 27
+method = modified trap
+reltol = 0.0005
+Per .tran options, skipping operating point for transient analysis.
+Total elapsed time: 56.763 seconds.
+
+Files loaded:
+D:\TOPLANDIK\Power_electronics\MIT_Buck_Converter_Design_TAMAMLANDI\LTspice_AveragedSwitchModelingSimulation\SyncBuck_switching_CL.net
+C:\Users\user\AppData\Local\LTspice\lib\cmp\standard.dio
+C:\Users\user\AppData\Local\LTspice\lib\cmp\standard.mos
+D:\TOPLANDIK\Power_electronics\MIT_Buck_Converter_Design_TAMAMLANDI\LTspice_AveragedSwitchModelingSimulation\switching.lib
+C:\Users\user\AppData\Local\LTspice\lib\sub\LTC.lib
+C:\Users\user\AppData\Local\LTspice\lib\sub\LTC7.lib
+
