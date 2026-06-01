@@ -43,6 +43,8 @@ Bu dosya, kaynak DOCX belgesindeki ana bölümlerin repo içindeki Markdown kar�
 | `docs/assets/docx-media/media/image9.png` | Bölüm 4.2 | Dalga biçimi etiket görseli |
 | `docs/assets/docx-media/media/image10.png` | Bölüm 4.2 | Dalga biçimi denklem/etiket görseli |
 | `docs/assets/docx-media/media/image11.png` | Bölüm 4.2 | Buck converter genel dalga biçimleri |
+| `docs/assets/docx-media/media/image12.png` | Bölüm 4.2 | Kaynak DOCX küçük medya nesnesi; eksiksiz aktarım için ölçeklenerek bağlandı |
+| `docs/assets/docx-media/media/image13.png` | Bölüm 4.2 | Kaynak DOCX küçük medya nesnesi; eksiksiz aktarım için ölçeklenerek bağlandı |
 | `docs/assets/docx-media/media/image14.png` | Bölüm 5 | Kontrolcü tasarımı giriş diyagramı |
 | `docs/assets/docx-media/media/image15.png` | Bölüm 5.1 | Sistem block diagramı |
 | `docs/assets/docx-media/media/image16.png` | Bölüm 5.1 | Kapalı çevrim ifade ilişkisi |
@@ -59,7 +61,10 @@ Bu dosya, kaynak DOCX belgesindeki ana bölümlerin repo içindeki Markdown kar�
 | `docs/assets/docx-media/media/image27.png` | Bölüm 5.8 | Nihai açık çevrim Bode |
 | `docs/assets/docx-media/media/image28.png` | Bölüm 5.8 | Hesaplanan $T(s)$ |
 | `docs/assets/docx-media/media/image29.png` | Bölüm 5.8 | $T(s)$ kapalı çevrim ifadeleri |
+| `docs/assets/docx-media/media/image30.png` | Bölüm 5.8 | Kaynak DOCX küçük medya nesnesi; eksiksiz aktarım için ölçeklenerek bağlandı |
 | `docs/assets/docx-media/media/image31.png` | Bölüm 5.8 | Reference-to-output cevabı |
+| `docs/assets/docx-media/media/image32.png` | Bölüm 6 | Kaynak DOCX küçük medya nesnesi; eksiksiz aktarım için ölçeklenerek bağlandı |
+| `docs/assets/docx-media/media/image33.png` | Bölüm 6 | Kaynak DOCX küçük medya nesnesi; eksiksiz aktarım için ölçeklenerek bağlandı |
 | `docs/assets/docx-media/media/image34.png` | Bölüm 6 | Op-amp gerçekleştirme devresi |
 | `docs/assets/docx-media/media/image35.png` | Bölüm 6.1 | Sensor gain gerilim bölücü |
 | `docs/assets/docx-media/media/image36.png` | Bölüm 6.2 | Compensator hedef frekans/kazanç davranışı |
@@ -83,6 +88,6 @@ Bu dosya, kaynak DOCX belgesindeki ana bölümlerin repo içindeki Markdown kar�
 
 ## Manuel Takip Gereken Öğeler
 
-- `image12.png`, `image13.png`, `image30.png`, `image32.png`, `image33.png` çok küçük artefakt medya nesneleri gibi görünüyor; PDF render ile nihai olarak doğrulanmalı.
+- `image12.png`, `image13.png`, `image30.png`, `image32.png`, `image33.png` artık `docs/full-report.md` içinde doğrudan bağlandı. Boyutları çok küçük olduğu için ölçeklenerek gösterildi; PDF render ile teknik içerik taşıyıp taşımadıkları son kez doğrulanabilir.
 - Input voltage transient, input current ripple ve sıcaklık aralığı gereksinimleri raporda hedef olarak listelenmiş olsa da ayrı görsel doğrulamayla kapatılmamış.
 - Büyük üçüncü taraf kaynak PDF'lerin repo içinde tutulması lisans/dağıtım açısından ayrıca değerlendirilmeli.

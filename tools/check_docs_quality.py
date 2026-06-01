@@ -125,6 +125,7 @@ def check_links() -> tuple[list[str], list[str]]:
 def count_full_report_images() -> tuple[int, list[str]]:
     text = read(Path("docs/full-report.md"))
     images = re.findall(r"!\[[^\]]*\]\(([^)]+)\)", text)
+    images.extend(re.findall(r'<img\s+[^>]*src="([^"]+)"', text))
     missing = []
     for raw in images:
         target_path, _ = split_target(raw)
@@ -134,9 +135,21 @@ def count_full_report_images() -> tuple[int, list[str]]:
     return len(images), missing
 
 
+def docx_media_usage() -> tuple[int, int, list[str]]:
+    text = read(Path("docs/full-report.md"))
+    refs = re.findall(r"!\[[^\]]*\]\((assets/docx-media/media/[^)]+)\)", text)
+    refs.extend(re.findall(r'<img\s+[^>]*src="(assets/docx-media/media/[^"]+)"', text))
+    linked = {Path(ref).name for ref in refs}
+    media_dir = ROOT / "docs/assets/docx-media/media"
+    media_files = sorted(path.name for path in media_dir.iterdir() if path.is_file())
+    unlinked = [name for name in media_files if name not in linked]
+    return len(media_files), len(linked), unlinked
+
+
 def main() -> int:
     broken, missing_images = check_links()
     image_count, full_missing_images = count_full_report_images()
+    docx_media_total, docx_media_linked, docx_media_unlinked = docx_media_usage()
 
     full = read(Path("docs/full-report.md"))
     verification = read(Path("docs/verification-summary.md"))
@@ -184,6 +197,11 @@ def main() -> int:
     for item in full_missing_images:
         print(f"  MISSING_FULL_REPORT_IMAGE {item}")
     print(f"full_report_image_links={image_count}")
+    print(f"docx_media_total={docx_media_total}")
+    print(f"docx_media_unique_linked={docx_media_linked}")
+    print(f"docx_media_unlinked={len(docx_media_unlinked)}")
+    for item in docx_media_unlinked:
+        print(f"  DOCX_MEDIA_UNLINKED {item}")
     print(f"mojibake_files={len(mojibake)}")
     for item, hits in mojibake.items():
         print(f"  MOJIBAKE {item}: {hits}")

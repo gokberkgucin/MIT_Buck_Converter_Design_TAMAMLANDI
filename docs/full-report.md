@@ -388,7 +388,21 @@ Genel dalga biçimleri bölümünde, anahtarlama periyodu boyunca akım ve geril
 
 *Şekil 4.4 - Buck converter akım ve gerilim dalga biçimleri.*
 
-> TODO: Kaynak DOCX bu noktada `image12.png` ve `image13.png` adlı iki adet 2x2 piksel medya nesnesi de içeriyor. Bunlar görünür teknik figür gibi durmadığı için ana akışa gömülmedi; PDF ile karşılaştırılarak boş/artefakt oldukları doğrulanmalı.
+Kaynak DOCX bu noktada iki küçük medya nesnesi daha içerir. Bunlar 2x2 piksel boyutunda olduğu için GitHub üzerinde görünür kalmaları amacıyla ölçeklenerek ve dosya linkleriyle birlikte korunmuştur.
+
+<a id="fig-docx-micro-12"></a>
+[image12.png](assets/docx-media/media/image12.png)
+
+<img src="assets/docx-media/media/image12.png" alt="Kaynak DOCX küçük medya nesnesi image12" width="64">
+
+*Şekil 4.5 - Kaynak DOCX'te genel dalga biçimleri bölümünden sonra bulunan küçük medya nesnesi (`image12.png`).*
+
+<a id="fig-docx-micro-13"></a>
+[image13.png](assets/docx-media/media/image13.png)
+
+<img src="assets/docx-media/media/image13.png" alt="Kaynak DOCX küçük medya nesnesi image13" width="64">
+
+*Şekil 4.6 - Kaynak DOCX'te genel dalga biçimleri bölümünden sonra bulunan küçük medya nesnesi (`image13.png`).*
 
 <a id="kontrolcu-tasarimi"></a>
 # 5. Kontrolcü Tasarımı
@@ -1093,24 +1107,45 @@ Hesaplanan $T(s)$ aşağıdaki kapalı çevrim transfer fonksiyonlarında kullan
 
 *Şekil 5.15 - $T(s)$ ile kurulan kapalı çevrim ifade.*
 
-> TODO: Kaynak DOCX bu noktada `image30.png` adlı 2x2 piksel bir medya nesnesi içeriyor. Görünür teknik figür gibi durmadığı için ana akışa gömülmedi; PDF ile karşılaştırılarak boş/artefakt olduğu doğrulanmalı.
+Kaynak DOCX bu noktada 2x2 piksel boyutunda ek bir medya nesnesi içerir. Teknik figür gibi görünmese de kaynak medya setinin eksiksiz kalması için rapora bağlanmıştır.
+
+<a id="fig-docx-micro-30"></a>
+[image30.png](assets/docx-media/media/image30.png)
+
+<img src="assets/docx-media/media/image30.png" alt="Kaynak DOCX küçük medya nesnesi image30" width="64">
+
+*Şekil 5.16 - Kaynak DOCX'te $T(s)$ kapalı çevrim ifadeleri çevresinde bulunan küçük medya nesnesi (`image30.png`).*
 
 Kapalı çevrim reference-to-output cevabı mavi grafiktir. Kapalı çevrim bandwidth'i ile açık çevrim crossover frekansı birbirine oldukça yakındır. Kapalı çevrimdeki $1/H$ çarpanı olmasaydı tam eşit olacaktı.
 
 ![Kapalı çevrim reference-to-output cevabı](assets/docx-media/media/image31.png)
 
-*Şekil 5.16 - Kapalı çevrim reference-to-output cevabı.*
+*Şekil 5.17 - Kapalı çevrim reference-to-output cevabı.*
 
 <a id="op-amp-devresi-gerceklemesi"></a>
 # 6. Op-Amp Devresi Gerçeklemesi
 
 Transfer fonksiyonları bulunduktan sonra geri besleme, direnç ve sığaçlarla uygun şekilde gerçekleştirilecektir. Aşağıdaki ekran görüntüsü bitirilmiş op-amp gerçekleştirmesidir.
 
-> TODO: Kaynak DOCX, Bölüm 6 başlığı çevresinde `image32.png` ve `image33.png` adlı iki adet 3x3 piksel medya nesnesi içeriyor. Bunlar görünür teknik figür gibi durmadığı için ana akışa gömülmedi; PDF ile karşılaştırılarak boş/artefakt oldukları doğrulanmalı.
+Kaynak DOCX, Bölüm 6 başlığı çevresinde iki küçük medya nesnesi daha içerir. Bunlar 3x3 piksel boyutunda olduğu için ana teknik akışı değiştirmez; yine de kaynak medya setinin tamamı raporda izlenebilsin diye aşağıda ölçeklenerek gösterilmiştir.
+
+<a id="fig-docx-micro-32"></a>
+[image32.png](assets/docx-media/media/image32.png)
+
+<img src="assets/docx-media/media/image32.png" alt="Kaynak DOCX küçük medya nesnesi image32" width="72">
+
+*Şekil 6.1 - Op-amp gerçekleştirme başlığı çevresinde bulunan küçük medya nesnesi (`image32.png`).*
+
+<a id="fig-docx-micro-33"></a>
+[image33.png](assets/docx-media/media/image33.png)
+
+<img src="assets/docx-media/media/image33.png" alt="Kaynak DOCX küçük medya nesnesi image33" width="72">
+
+*Şekil 6.2 - Op-amp gerçekleştirme başlığı çevresinde bulunan küçük medya nesnesi (`image33.png`).*
 
 ![Op-amp gerçekleştirme devresi](assets/docx-media/media/image34.png)
 
-*Şekil 6.1 - Sensor gain ve compensator ağı dahil op-amp gerçekleştirme devresi.*
+*Şekil 6.3 - Sensor gain ve compensator ağı dahil op-amp gerçekleştirme devresi.*
 
 <a id="sensor-gain-hs"></a>
 ## 6.1. Sensor Gain, $H(s)$
@@ -1119,7 +1154,7 @@ Sensor gain için gerilim bölücü kullanılır.
 
 ![Gerilim bölücü ile H(s) sensor gain gerçekleştirmesi](assets/docx-media/media/image35.png)
 
-*Şekil 6.2 - $H(s)$ sensor gain için gerilim bölücü.*
+*Şekil 6.4 - $H(s)$ sensor gain için gerilim bölücü.*
 
 Seçilen değerler:
 
@@ -1158,13 +1193,13 @@ Compensator için hedeflenen frekanslar ve kazançlar aşağıdaki Bode davranı
 
 ![Compensator için hedef frekans ve kazanç davranışı](assets/docx-media/media/image36.png)
 
-*Şekil 6.3 - Gerçeklenecek compensator frekansları ve kazançları.*
+*Şekil 6.5 - Gerçeklenecek compensator frekansları ve kazançları.*
 
 $V_{ref}$ sabit olan bir tasarımda, $V_{ref}$ önündeki empedans ağını kullanmaya gerek yoktur. Bu nedenle sadeleştirilmiş compensator devresi aşağıdaki gibidir.
 
 ![Sadeleştirilmiş compensator devresi](assets/docx-media/media/image37.png)
 
-*Şekil 6.4 - $V_{ref}$ sabit olduğunda kullanılan sadeleştirilmiş compensator ağı.*
+*Şekil 6.6 - $V_{ref}$ sabit olduğunda kullanılan sadeleştirilmiş compensator ağı.*
 
 Op-amp compensator çıkışı:
 
@@ -1193,7 +1228,7 @@ olarak ayrıştırılır.
 
 ![R2 ve C2 empedans karşılaştırması](assets/docx-media/media/image38.png)
 
-*Şekil 6.5 - $R_2$ sabit empedansı ve $Z_{C2}$ eğimi.*
+*Şekil 6.7 - $R_2$ sabit empedansı ve $Z_{C2}$ eğimi.*
 
 $R_2$ direnci tüm frekanslarda sabittir. $Z_{C2}$ empedansı ise $-20\,\text{dB/dec}$ eğimle azalır. Kaynak belgede $R_2$ ve $Z_{C2}$ değerlerinin:
 
@@ -1235,7 +1270,7 @@ olur.
 
 ![Sığaç empedansının terslenmesiyle +20 dB/dec davranış](assets/docx-media/media/image39.png)
 
-*Şekil 6.6 - Bobin davranışına benzer $+20\,\text{dB/dec}$ eğimin sığaç empedansının terslenmesiyle elde edilmesi.*
+*Şekil 6.8 - Bobin davranışına benzer $+20\,\text{dB/dec}$ eğimin sığaç empedansının terslenmesiyle elde edilmesi.*
 
 Bobin davranışını andıran $+20\,\text{dB/dec}$ eğim, sığaç empedansının terslenmesiyle sağlanır.
 
@@ -1249,7 +1284,7 @@ $Z_1(s)$ ve $Z_2(s)$ seri bağlı alt elemanlardan oluşur. Bu yüzden belirli f
 
 ![Z1 ve Z2 empedans ağı 3](assets/docx-media/media/image41.png)
 
-*Şekil 6.7 - $Z_1(s)$ ve $Z_2(s)$ için frekans bölgesine göre dominant empedanslar.*
+*Şekil 6.9 - $Z_1(s)$ ve $Z_2(s)$ için frekans bölgesine göre dominant empedanslar.*
 
 ### 6.2.4. Eleman Değerlerinin Çözülmesi
 

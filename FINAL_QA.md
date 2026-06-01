@@ -21,7 +21,8 @@ Bu dosya, README landing page, `docs/` giriş sayfası ve tam rapor için son ka
 | Kontrol | Sonuç | Not |
 |---|---|---|
 | Kırık link | Geçti | `broken_links=0`. |
-| Eksik görsel | Geçti | `missing_images=0`; `docs/full-report.md` içinde 49 görsel linki var. |
+| Eksik görsel | Geçti | `missing_images=0`; `docs/full-report.md` içinde 54 görsel referansı var. |
+| Kullanılmayan DOCX media | Geçti | `docx_media_total=53`, `docx_media_unique_linked=53`, `docx_media_unlinked=0`. |
 | Bozuk Türkçe karakter | Geçti | `mojibake_files=0`. |
 | Absolute path | Geçti | `absolute_path_files=0`. |
 | Başlık sırası | Geçti | `missing_key_anchors=0`; ana DOCX bölümleri stabil HTML anchor’larla korunuyor. |
@@ -29,6 +30,7 @@ Bu dosya, README landing page, `docs/` giriş sayfası ve tam rapor için son ka
 | Verification / full-report çelişkisi | Geçti | `verification_value_mismatches=0`; kritik değerler iki dosyada da aynı: `49.5957`, `124.1839`, `1.30`, `8.58`, `37.38`, `97.78`. |
 | Korunan mevcut dosyalar | Geçti | Kaynak DOCX/PDF, LTspice klasörü, görsel klasörleri ve ana referanslar README/docs index üzerinden bağlandı. |
 | Summary-only kalan yer | Geçti | `summary_only_hits=0`; README özet/navigasyon, teknik içerik uzun formda `docs/full-report.md` içinde. |
+| Açık TODO kalan yer | Geçti | `todo_hits=0`. |
 
 ## Kaynak DOCX ile Repo Çıktısı Karşılaştırması
 
@@ -40,9 +42,9 @@ Bu dosya, README landing page, `docs/` giriş sayfası ve tam rapor için son ka
 | Bölüm 5-6 | [Kontrolcü tasarımı](docs/full-report.md#kontrolcu-tasarimi) ve [op-amp gerçekleme](docs/full-report.md#op-amp-devresi-gerceklemesi) | Sensor gain, $G_{vd}(s)$, loop gain, lead/lag/PID, op-amp kutbu ve eleman değerleri korunmuş. |
 | Bölüm 7 | [Benzetim sonuçları](docs/full-report.md#benzetim-sonuclari) | Gereksinim ve sonuçlar aynı akışta karşılaştırılabilir hale getirildi. |
 | Bölüm 8 / Kaynaklar / Ekler | [Projenin geleceği](docs/full-report.md#projenin-gelecegi), [Kaynaklar](docs/full-report.md#kaynaklar), [Ekler](docs/full-report.md#ekler) | LM5146, referanslar, sığaç veri sayfası ve genel devre görünümü eklendi. |
-| 53 çıkarılmış DOCX medya nesnesi | 49 rapor içi görsel linki, 48 benzersiz hedef | Görünür teknik figürler bağlandı; 5 çok küçük artefakt medya nesnesi manuel takipte tutuldu. |
+| 53 çıkarılmış DOCX medya nesnesi | 54 rapor içi görsel referansı, 53 benzersiz medya hedefi | Tüm DOCX medya dosyaları rapora bağlandı; 5 çok küçük medya nesnesi ölçeklenerek gösterildi. |
 | 28 kaynak tablo | Ana hesap ve doğrulama tabloları Markdown’a yeniden kuruldu | Otomatik tablo sayısı birebir aynı değildir; teknik karşılıklar elle güçlendirildi. |
-| 151 OOXML math object | Kritik denklemler Markdown math veya açıklamalı figür bağlamıyla aktarıldı | Denklemler tamamen sessizce düşürülmedi; karmaşık/figür tabanlı yerler source map ve TODO notlarıyla izleniyor. |
+| 151 OOXML math object | Kritik denklemler Markdown math veya açıklamalı figür bağlamıyla aktarıldı | Denklemler tamamen sessizce düşürülmedi; karmaşık/figür tabanlı yerler source map ile izleniyor. |
 
 ## README / Docs Entry Kontrolü
 
@@ -78,7 +80,7 @@ Bu dosya, README landing page, `docs/` giriş sayfası ve tam rapor için son ka
 
 | Öğe | Durum |
 |---|---|
-| `image12.png`, `image13.png`, `image30.png`, `image32.png`, `image33.png` | Çok küçük medya artefaktı gibi görünüyor; PDF render ile boş/teknik olmayan nesne oldukları son kez teyit edilmeli. |
+| `image12.png`, `image13.png`, `image30.png`, `image32.png`, `image33.png` | `docs/full-report.md` içine bağlandı ve çok küçük oldukları için ölçeklenerek gösterildi; PDF render ile teknik içerik taşıyıp taşımadıkları son kez teyit edilebilir. |
 | `LTspice_AveragedSwitchModelingSimulation/SyncBuck_switching_CL.raw` | Yaklaşık 523 MB olduğu için GitHub commit’ine alınmadı; harici bulut veya release asset olarak paylaşılmalı. |
 | Input voltage transient | Gereksinim korunuyor; kaynak raporda ayrı görsel doğrulama yok. |
 | Input current ripple | Gereksinim korunuyor; kaynak raporda ayrı görsel doğrulama yok. |
