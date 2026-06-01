@@ -1,31 +1,23 @@
 <a id="kapak"></a>
 # DC-DC Synchronous Alçaltıcı Dönüştürücü Tasarımı, Analizi ve Benzetimi
 
-## Kapak ve Onay Bilgisi
+## Rapor Bilgisi
 
-**2025**
+| Alan | Bilgi |
+|---|---|
+| Çalışma türü | Lisans tezi |
+| Bölüm | Elektrik-Elektronik Mühendisliği |
+| Yazar | Gökberk Güçin |
+| Öğrenci no | 2017010215016 |
+| Kurum | Karabük Üniversitesi, Mühendislik Fakültesi, Elektrik-Elektronik Mühendisliği Bölümü |
+| Danışman | Doç. Dr. Ozan GÜLBUDAK |
+| Tarih | Ocak 2025 |
+| Kaynak belge | `Birinci_donem_Buck_Converter_Serbest_Projesi.docx` |
 
-**Lisans Tezi**
-
-**Elektrik-Elektronik Mühendisliği**
-
-**Gökberk Güçin**
-
-Ad SOYAD tarafından hazırlanan "TEZİN ADI" başlıklı bu tezin Lisans Tezi olarak uygun olduğunu onaylarım.
-
-**Tarih:** xx/xx/201x
-
-**Tez danışmanı:** Doç. Dr. Ozan GÜLBUDAK  
-Karabük Üniversitesi Elektrik-Elektronik Mühendisliği Bölümü
-
-**Jüri üyesi:** Ünvan. Ad SOYAD  
-xxxx Üniversitesi xxx Mühendisliği Bölümü
-
-**Jüri üyesi:** Ünvan. Ad SOYAD  
-Karabük Üniversitesi xxxx Bölümü
+Bu GitHub sürümünde kaynak DOCX içindeki boş onay/imza şablonları ve Word bookmark hatası yayın içeriğine taşınmadı; teknik rapor gövdesi, görseller, hesap akışı, doğrulama sonuçları, kaynaklar ve ekler korunarak yeniden düzenlendi.
 
 <a id="abstract"></a>
-# Abstract
+# ABSTRACT
 
 **B. Sc. Thesis**
 
@@ -33,56 +25,91 @@ Karabük Üniversitesi xxxx Bölümü
 
 **Gökberk Güçin 2017010215016**
 
-**Karabük University**  
+**Karabük University**
 **Faculty of Engineering Department of Electrical-Electronics Engineering**
 
 **Thesis Advisor:** Doç. Dr. Ozan GÜLBUDAK
 
 **January 2025, 60 pages**
 
-This undergraduate thesis focuses on the design and analysis of a synchronous DC-DC buck converter, which is widely used in power electronics for efficient voltage regulation. The study includes the systematic calculation and optimization of power stage components such as inductors, capacitors, and MOSFETs to achieve desired performance metrics. A comprehensive control strategy utilizing a PID compensator is developed to ensure stable and precise output voltage regulation under varying load and input conditions. Simulation results verify the design's efficiency, ripple control, and transient response, meeting the specified requirements. The findings demonstrate the feasibility of integrating theoretical principles with practical applications in the field of power electronics.
+This undergraduate thesis focuses on the design and analysis of a synchronous DC-DC buck converter, which is widely used in power electronics for efficient voltage regulation.
+The study includes the systematic calculation and optimization of power stage components such as inductors, capacitors, and MOSFETs to achieve desired performance metrics.
+A comprehensive control strategy utilizing a PID compensator is developed to ensure stable and precise output voltage regulation under varying load and input conditions.
+Simulation results verify the design's efficiency, ripple control, and transient response, meeting the specified requirements.
+The findings demonstrate the feasibility of integrating theoretical principles with practical applications in the field of power electronics.
 
 **Key Words:** Synchronous buck converter, voltage regulation, power electronics, PID compensator, transient response
 
 <a id="icindekiler"></a>
-# İçindekiler
+# İÇİNDEKİLER
 
-- [Kapak ve Onay Bilgisi](#kapak)
-- [Abstract](#abstract)
-- [1. Giriş](#giris)
+- [Rapor Bilgisi](#kapak)
+- [ABSTRACT](#abstract)
+- [1. GİRİŞ](#giris)
   - [1.1. Çalışmanın Amacı ve Kapsamı](#calismanin-amaci-ve-kapsami)
   - [1.2. Buck Converter Nedir?](#buck-converter-nedir)
 - [2. Güç ve Kontrol Tasarımında İzlenen Yöntem](#guc-ve-kontrol-tasariminda-izlenen-yontem)
   - [2.1. Frekans Seçim Kuralları ve Hesaplamalar](#frekans-secim-kurallari-ve-hesaplamalar)
   - [2.2. Hesaplamalarda Kullanılacak Parametreler](#hesaplamalarda-kullanilacak-parametreler)
 - [3. Güç Katı Hesaplamaları](#guc-kati-hesaplamalari)
+  - [3.1. İlk Güç Katı Hesapları](#ilk-guc-kati-hesaplari)
+  - [3.2. Güncellenmiş L ve C Değerleriyle Hesaplar](#guncellenmis-l-ve-c-degerleriyle-hesaplar)
+  - [3.3. Duty Cycle Hesabının LTspice ile Kontrolü](#duty-cycle-hesabinin-ltspice-ile-kontrolu)
+  - [3.4. Güç Katı Değer Özeti](#guc-kati-deger-ozeti)
 - [4. Çevirici Durum Denklemleri](#cevirici-durum-denklemleri)
   - [4.1. ESR Etkisi](#esr-etkisi)
   - [4.2. Genel Dalga-Biçimleri](#genel-dalga-bicimleri)
 - [5. Kontrolcü Tasarımı](#kontrolcu-tasarimi)
-- [6. Op-Amp Devresi Gerçeklemesi](#op-amp-devresi-gerceklemesi)
-- [7. Benzetim Sonuçları](#benzetim-sonuclari)
-- [8. Projenin Geleceği](#projenin-gelecegi)
-- [Kaynaklar](#kaynaklar)
-- [Ekler](#ekler)
+  - [5.1. Sistem Block Diagramı ve Küçük İşaret Modeli](#sistem-block-diagrami-ve-kucuk-isaret-modeli)
+  - [5.2. Kontrolcü Hesabı](#kontrolcu-hesabi)
+  - [5.3. Uncompensated Loop Gain](#uncompensated-loop-gain)
+  - [5.4. Lead (PD) Compensator Eklenmesi](#lead-pd-compensator-eklenmesi)
+  - [5.5. Lag (PI) Compensator Eklenmesi](#lag-pi-compensator-eklenmesi)
+  - [5.6. PID Compensator Birleştirilmiş Hali](#pid-compensator-birlestirilmis-hali)
+  - [5.7. Op-Amp ve Kutup Etkisi](#op-amp-ve-kutup-etkisi)
+  - [5.8. Açık Çevrim Transfer Fonksiyonu, T(s)](#acik-cevrim-transfer-fonksiyonu-ts)
+- [6. Op-amp devresi -gerçeklemesi](#op-amp-devresi-gerceklemesi)
+  - [6.1. Sensor Gain (H(s))](#sensor-gain-hs)
+  - [6.2. Compensator Devresi](#compensator-devresi)
+- [7. Benzetim sonuçları](#benzetim-sonuclari)
+  - [7.1. Tasarım Gereksinimleri](#tasarim-gereksinimleri)
+  - [7.2. Benzetimde kullanılan elemanlar ve parametreler](#benzetimde-kullanilan-elemanlar-ve-parametreler)
+  - [7.3. Çıkış Gücü](#cikis-gucu)
+  - [7.4. Output Voltage (static requirement)](#output-voltage-static-requirement)
+  - [7.5. Output Voltage (transient limits)](#output-voltage-transient-limits)
+  - [7.6. Allowed output voltage ripple (p-p, any R load)](#allowed-output-voltage-ripple)
+  - [7.7. Verimlilik](#verimlilik)
+  - [7.8. Hesaplamaların Doğrulanması](#hesaplamalarin-dogrulanmasi)
+- [8. PROJENIN GELECEĞİ](#projenin-gelecegi)
+- [KAYNAKLAR](#kaynaklar)
+- [EKLER](#ekler)
+  - [EK-1. Sığaç Verisayfası](#ek-1-sigac-verisayfasi)
+  - [EK-2. Genel görünüm](#ek-2-genel-gorunum)
 
 <a id="giris"></a>
-# 1. Giriş
+# 1. GİRİŞ
 
 <a id="calismanin-amaci-ve-kapsami"></a>
 ## 1.1. Çalışmanın Amacı ve Kapsamı
 
-Bu çalışmanın amacı, belirlenen tasarım gereksinimlerini karşılayan bir DC-DC senkron buck konvertörünün tasarımını, analizini ve benzetimini gerçekleştirmektir. Çalışma, buck konvertör devresinin temel prensiplerini, güç katı hesaplamalarını ve kontrolcü tasarımını ele almaktadır. Tasarlanan sistem, verilen giriş voltaj aralığında çıkış voltajını sabit tutmayı hedeflemekte ve yüksek verimlilikle çalışması planlanmıştır.
+Bu çalışmanın amacı, belirlenen tasarım gereksinimlerini karşılayan bir DC-DC senkron buck konvertörünün tasarımını, analizini ve benzetimini gerçekleştirmektir.
+Çalışma, buck konvertör devresinin temel prensiplerini, güç katı hesaplamalarını ve kontrolcü tasarımını ele almaktadır.
+Tasarlanan sistem, verilen giriş voltaj aralığında çıkış voltajını sabit tutmayı hedeflemekte ve yüksek verimlilikle çalışması planlanmıştır.
 
 <a id="buck-converter-nedir"></a>
 ## 1.2. Buck Converter Nedir?
 
-Buck converter, yüksek giriş gerilimini daha düşük bir çıkış gerilimine dönüştüren bir DC-DC dönüştürücü türüdür. Bu tür devreler, enerji kaybını azaltarak verimli bir şekilde enerji dönüşümü sağlar. Anahtar transistör, diyot, bobin ve kapasitör gibi temel elemanlardan oluşan buck converter, çeşitli elektronik cihazlarda güç yönetimi için yaygın olarak kullanılır.
+Buck converter, yüksek giriş gerilimini daha düşük bir çıkış gerilimine dönüştüren bir DC-DC dönüştürücü türüdür.
+Bu tür devreler, enerji kaybını azaltarak verimli bir şekilde enerji dönüşümü sağlar.
+Anahtar transistör, diyot, bobin ve kapasitör gibi temel elemanlardan oluşan buck converter, çeşitli elektronik cihazlarda güç yönetimi için yaygın olarak kullanılır.
 
 <a id="guc-ve-kontrol-tasariminda-izlenen-yontem"></a>
 # 2. Güç ve Kontrol Tasarımında İzlenen Yöntem
 
-Okuduğum kaynaklarda önce güç katı (Power Stage) hesaplamaları yapılıyor. Akım, gerilim değerleri, elemanların değerleri, kayıpları belirleniyor. Ardından kontrolcünün tasarımına geçiliyor. Güç ile kontrol tasarımı öncelik-sonralık ilişkisi olsa da birbirinden ayrık iki farklı süreçmiş gibi anlatılıyor.
+Okuduğum kaynaklarda önce güç katı (Power Stage) hesaplamaları yapılıyor.
+Akım, gerilim değerleri, elemanların değerleri, kayıpları belirleniyor.
+Ardından kontrolcünün tasarımına geçiliyor.
+Güç ile kontrol tasarımı öncelik-sonralık ilişkisi olsa da birbirinden ayrık iki farklı süreçmiş gibi anlatılıyor.
 
 Kontrolcü tasarımında, bu güç katında belirlediğimiz parametreler kullanılıyor. Bu yöntem izlenerek yapılan çalışmada, frekansları istenen yerde tutmak zor olabiliyor. Güç aşamasına dönüp değeri yeniden değiştirmek zorunda kalınabiliyor.
 
@@ -100,13 +127,13 @@ Kaynak [1] ve [2]'deki Type-3 Compensator'lü bir kontrolcü sistemindeki frekan
 - $f_L < f_c / 10$
 - $f_0$, $f_z$'den küçük; $f_L$'den büyük olacak.
 
-![Type-3 compensator frekans ilişkileri](assets/docx-media/media/image1.png)
+![Type-3 compensator frekans ilişkileri](assets/full-report/power-stage/image01-type-3-compensator-frequency-relations.png)
 
 *Şekil 2.1 - Type-3 compensator için kullanılan frekans ilişkileri.*
 
 Bu koşulları birleştirip, tüm frekansları yatay eksende büyüklük sırasına göre sıraladım.
 
-![Frekansların büyüklük sırasına göre dizilimi](assets/docx-media/media/image2.png)
+![Frekansların büyüklük sırasına göre dizilimi](assets/full-report/power-stage/image02-frequency-ordering.png)
 
 *Şekil 2.2 - Tasarımda kullanılan frekansların hedef sıralaması.*
 
@@ -201,10 +228,13 @@ $$
 
 Buck converter, en yüksek giriş gerilimindeyken ($36\,\text{V}$), en yüksek gücü ($125\,\text{W}$) verebilecek biçimde tasarlandı. Yüksek gerilimdeyken duty cycle $D$ daha düşük olmak zorunda.
 
-Küçük $D$; ana MOSFET'in daha kısa süre iletimde kalması, bobin ve sığacın dolması için daha az süreleri var demektir. Dolmaları için tanınan süre daha kısa olsa da aynı miktarda enerjiyi depolamak zorundalar; yüksek akım çekmeliler ve yüksek gerilime çıkabilmelidirler. Sabit çıkış gerilimi için bu, $L$ ve $C$ değerlerinin büyümesi anlamına gelir.
+Küçük $D$; ana MOSFET'in daha kısa süre iletimde kalması, bobin ve sığacın dolması için daha az süreleri var demektir.
+Dolmaları için tanınan süre daha kısa olsa da aynı miktarda enerjiyi depolamak zorundalar; yüksek akım çekmeliler ve yüksek gerilime çıkabilmelidirler.
+Sabit çıkış gerilimi için bu, $L$ ve $C$ değerlerinin büyümesi anlamına gelir.
 
 Yüksek çıkış gücü de düşük güce göre zorlayıcı durumdur.
 
+<a id="ilk-guc-kati-hesaplari"></a>
 ## 3.1. İlk Güç Katı Hesapları
 
 | Adım | Hesap / seçim | Sonuç / yorum |
@@ -287,6 +317,7 @@ olarak bulunur.
 
 Yeni $L$ ve $C$ değerlerine göre hesap yenilenmelidir.
 
+<a id="guncellenmis-l-ve-c-degerleriyle-hesaplar"></a>
 ## 3.2. Güncellenmiş L ve C Değerleriyle Hesaplar
 
 | Adım | Hesap / sonuç | Yorum |
@@ -300,10 +331,11 @@ Yeni $L$ ve $C$ değerlerine göre hesap yenilenmelidir.
 
 $L$ ve $C$ değerlerinin artışı, çıkıştaki gerilim dalgalanmasını $100\,\text{mV}$ seviyesinden yaklaşık $27\,\text{mV}$ seviyesine düşürdü. Bu, kapalı çevrimin frekanslarının yerlerini tasarım sürecinin en başından itibaren gözetmenin bir sonucu olarak değerlendirilebilir.
 
-![Güncellenmiş güç katı hesaplarına ait şekil](assets/docx-media/media/image3.png)
+![Güncellenmiş güç katı hesaplarına ait şekil](assets/full-report/power-stage/image03-updated-power-stage-calculation-flow.png)
 
 *Şekil 3.1 - Kaynak DOCX'teki güç katı hesap akışında kullanılan devre/hesap görseli.*
 
+<a id="duty-cycle-hesabinin-ltspice-ile-kontrolu"></a>
 ## 3.3. Duty Cycle Hesabının LTspice ile Kontrolü
 
 Adım 1'de yapılan duty cycle hesabı LTspice benzetiminde kontrol edildi. Steady-state iken, giriş gerilimi $36\,\text{V}$ olduğunda:
@@ -316,14 +348,15 @@ olarak görülmektedir. Bu değer hesaplanan $D_{min}$ ile uyumludur.
 
 Benzer şekilde giriş gerilimi $24\,\text{V}$ iken $D_{max}$ olduğu görülebilir. Ayrıca bu $D_{min}$ ve $D_{max}$ değerleri steady-state için geçerlidir. Transient durumlarında kontrolcünün verdiği emirle $D$, yaklaşık $0.9$ ile $0.1$ arasında değişir.
 
-![36 V giriş için duty-cycle LTspice kontrolü](assets/docx-media/media/image4.jpeg)
+![36 V giriş için duty-cycle LTspice kontrolü](assets/full-report/power-stage/image04-duty-cycle-36v-ltspice-check.jpeg)
 
 *Şekil 3.2 - 36 V girişte steady-state duty-cycle kontrolü.*
 
-![24 V giriş için duty-cycle LTspice kontrolü](assets/docx-media/media/image5.png)
+![24 V giriş için duty-cycle LTspice kontrolü](assets/full-report/power-stage/image05-duty-cycle-24v-ltspice-check.png)
 
 *Şekil 3.3 - 24 V girişte duty-cycle davranışı ve LTspice kontrolü.*
 
+<a id="guc-kati-deger-ozeti"></a>
 ## 3.4. Güç Katı Değer Özeti
 
 | Büyüklük | Değer |
@@ -346,7 +379,7 @@ Benzer şekilde giriş gerilimi $24\,\text{V}$ iken $D_{max}$ olduğu görülebi
 <a id="cevirici-durum-denklemleri"></a>
 # 4. Çevirici Durum Denklemleri
 
-![Buck converter durum denklemleri](assets/docx-media/media/image6.png)
+![Buck converter durum denklemleri](assets/full-report/state-equations/image06-buck-converter-state-equations.png)
 
 *Şekil 4.1 - Kaynak DOCX'teki buck converter durum denklemleri.*
 
@@ -363,7 +396,7 @@ $$
 
 şeklindedir.
 
-![ESR etkisinin çıkış gerilimi üzerindeki etkisi](assets/docx-media/media/image7.png)
+![ESR etkisinin çıkış gerilimi üzerindeki etkisi](assets/full-report/state-equations/image07-esr-effect-output-voltage.png)
 
 *Şekil 4.2 - ESR'nin çıkış gerilimi dalgalanmasını artıran etkisi.*
 
@@ -371,7 +404,7 @@ Bu görsel ve ifade ile ESR direncinin neden düşük tutulması gerektiği gös
 
 Kaynak belgede ESR etkisi sonrasında akım ve gerilimlerin genel dalga biçimlerine geçilir.
 
-![Akım ve gerilimlerin genel dalga biçimleri](assets/docx-media/media/image8.png)
+![Akım ve gerilimlerin genel dalga biçimleri](assets/full-report/state-equations/image08-current-voltage-general-waveforms.png)
 
 *Şekil 4.3 - Buck converter için genel akım ve gerilim dalga biçimleri.*
 
@@ -380,52 +413,58 @@ Kaynak belgede ESR etkisi sonrasında akım ve gerilimlerin genel dalga biçimle
 
 Genel dalga biçimleri bölümünde, anahtarlama periyodu boyunca akım ve gerilimlerin nasıl değiştiği gösterilir. Bu kısım, güç katı hesaplarında kullanılan $D$, $D'$, $\Delta I_L$, çıkış sığacı akımı ve çıkış gerilimi dalgalanması ilişkilerini görsel olarak destekler.
 
-![Genel dalga biçimleri için küçük işaret/etiket görselleri](assets/docx-media/media/image9.png)
+![Genel dalga biçimleri için küçük işaret/etiket görselleri](assets/full-report/state-equations/image09-waveform-label-small-signal.png)
 
-![Genel dalga biçimleri için denklem/etiket görseli](assets/docx-media/media/image10.png)
+![Genel dalga biçimleri için denklem/etiket görseli](assets/full-report/state-equations/image10-waveform-equation-label.png)
 
-![Buck converter genel dalga biçimleri](assets/docx-media/media/image11.png)
+![Buck converter genel dalga biçimleri](assets/full-report/state-equations/image11-buck-converter-general-waveforms.png)
 
 *Şekil 4.4 - Buck converter akım ve gerilim dalga biçimleri.*
 
 Kaynak DOCX bu noktada iki küçük medya nesnesi daha içerir. Bunlar 2x2 piksel boyutunda olduğu için GitHub üzerinde görünür kalmaları amacıyla ölçeklenerek ve dosya linkleriyle birlikte korunmuştur.
 
 <a id="fig-docx-micro-12"></a>
-[image12.png](assets/docx-media/media/image12.png)
+[image12.png](assets/full-report/state-equations/image12-decorative-small-media-12.png)
 
-<img src="assets/docx-media/media/image12.png" alt="Kaynak DOCX küçük medya nesnesi image12" width="64">
+<img src="assets/full-report/state-equations/image12-decorative-small-media-12.png" alt="Kaynak DOCX küçük medya nesnesi image12" width="64">
 
 *Şekil 4.5 - Kaynak DOCX'te genel dalga biçimleri bölümünden sonra bulunan küçük medya nesnesi (`image12.png`).*
 
 <a id="fig-docx-micro-13"></a>
-[image13.png](assets/docx-media/media/image13.png)
+[image13.png](assets/full-report/state-equations/image13-decorative-small-media-13.png)
 
-<img src="assets/docx-media/media/image13.png" alt="Kaynak DOCX küçük medya nesnesi image13" width="64">
+<img src="assets/full-report/state-equations/image13-decorative-small-media-13.png" alt="Kaynak DOCX küçük medya nesnesi image13" width="64">
 
 *Şekil 4.6 - Kaynak DOCX'te genel dalga biçimleri bölümünden sonra bulunan küçük medya nesnesi (`image13.png`).*
 
 <a id="kontrolcu-tasarimi"></a>
 # 5. Kontrolcü Tasarımı
 
-Amaç, çıkış gerilimini sabit ve iyi kontrol edilmiş bir değerde tutmaktır. Bu bölümde önce küçük işaret modelinden açık çevrim transfer fonksiyonuna gidilir; ardından uncompensated loop gain üzerinden gerekli kompanzasyon kazancı ve faz katkısı belirlenir. Son olarak lead, lag ve PID birleşimi op-amp ile gerçekleştirilecek devreye bağlanır.
+Amaç, çıkış gerilimini sabit ve iyi kontrol edilmiş bir değerde tutmaktır.
+Bu bölümde önce küçük işaret modelinden açık çevrim transfer fonksiyonuna gidilir; ardından uncompensated loop gain üzerinden gerekli kompanzasyon kazancı ve faz katkısı belirlenir.
+Son olarak lead, lag ve PID birleşimi op-amp ile gerçekleştirilecek devreye bağlanır.
 
-![Kontrolcü tasarımına geçişte kullanılan kaynak diyagram](assets/docx-media/media/image14.png)
+![Kontrolcü tasarımına geçişte kullanılan kaynak diyagram](assets/full-report/controller/image14-controller-design-transition-diagram.png)
 
 *Şekil 5.1 - Kaynak DOCX'te kontrolcü tasarımına girişte verilen diyagram.*
 
+<a id="sistem-block-diagrami-ve-kucuk-isaret-modeli"></a>
 ## 5.1. Sistem Block Diagramı ve Küçük İşaret Modeli
 
-![Sistemin block diagramı](assets/docx-media/media/image15.png)
+![Sistemin block diagramı](assets/full-report/controller/image15-system-block-diagram.png)
 
 *Şekil 5.2 - Buck converter, sensor gain, PWM ve compensator bloklarını içeren kontrol sistemi.*
 
-![Kapalı çevrim ifade ilişkisi 1](assets/docx-media/media/image16.png)
+![Kapalı çevrim ifade ilişkisi 1](assets/full-report/controller/image16-closed-loop-expression-1.png)
 
-![Kapalı çevrim ifade ilişkisi 2](assets/docx-media/media/image17.png)
+![Kapalı çevrim ifade ilişkisi 2](assets/full-report/controller/image17-closed-loop-expression-2.png)
 
 *Şekil 5.3 - Küçük işaret modelinde kullanılan kapalı çevrim ifade ilişkileri.*
 
-Küçük işaret AC modeli kullanıldı. Bu modelde $T(s)$ kontrolcünün açık çevrim transfer fonksiyonudur. $T(s)$ çevrim kazancı yüksek tasarlanarak çıkışın sadece referansı takip etmesi ve bozucuların etkilerinin en aza indirilmesi hedeflenir. Kaynak belgede özellikle giriş gerilimi ve yük akımı bozucuları:
+Küçük işaret AC modeli kullanıldı.
+Bu modelde $T(s)$ kontrolcünün açık çevrim transfer fonksiyonudur.
+$T(s)$ çevrim kazancı yüksek tasarlanarak çıkışın sadece referansı takip etmesi ve bozucuların etkilerinin en aza indirilmesi hedeflenir.
+Kaynak belgede özellikle giriş gerilimi ve yük akımı bozucuları:
 
 $$
 \hat{v}_g,\qquad \hat{i}_{load}
@@ -433,6 +472,7 @@ $$
 
 olarak gösterilir.
 
+<a id="kontrolcu-hesabi"></a>
 ## 5.2. Kontrolcü Hesabı
 
 PWM rampa genliği ve referans gerilimi:
@@ -613,6 +653,7 @@ $$
 
 olur.
 
+<a id="uncompensated-loop-gain"></a>
 ## 5.3. Uncompensated Loop Gain
 
 Compensator etkisi henüz yokken $G_c(s)=1$ alınır ve açık çevrim kazancı $T_u(s)$ hesaplanır.
@@ -631,7 +672,7 @@ G_{vd}(s)
 G_c(s)
 $$
 
-![Açık çevrim transfer fonksiyonu blok ifadesi](assets/docx-media/media/image18.png)
+![Açık çevrim transfer fonksiyonu blok ifadesi](assets/full-report/controller/image18-open-loop-transfer-function-block-expression.png)
 
 *Şekil 5.4 - $T(s)$ açık çevrim transfer fonksiyonunun kaynak DOCX'teki gösterimi.*
 
@@ -649,7 +690,7 @@ G_{vd}(s)
 1
 $$
 
-![Uncompensated loop gain ifadesi](assets/docx-media/media/image19.png)
+![Uncompensated loop gain ifadesi](assets/full-report/controller/image19-uncompensated-loop-gain-expression.png)
 
 *Şekil 5.5 - $T_u(s)$ uncompensated loop gain ifadesi.*
 
@@ -687,7 +728,7 @@ $$
 
 olur.
 
-![Uncompensated loop gain Bode diyagramı](assets/docx-media/media/image20.png)
+![Uncompensated loop gain Bode diyagramı](assets/full-report/controller/image20-uncompensated-loop-gain-bode.png)
 
 *Şekil 5.6 - Compensator eklenmeden önce açık çevrim Bode diyagramı.*
 
@@ -707,6 +748,7 @@ kazanç artışı gerekir.
 
 Ayrıca hedef $f_c$ noktasındaki phase margin yaklaşık $14^\circ$ seviyesindedir. Loop gain içinde pratik devre ve model kaynaklı ek bozulmalar da olacağı için gerçek phase margin bunun da altına düşebilir. Bu nedenle faz katkısı sağlayan bir lead compensator gereklidir.
 
+<a id="lead-pd-compensator-eklenmesi"></a>
 ## 5.4. Lead (PD) Compensator Eklenmesi
 
 Lead compensator ile hedef:
@@ -723,7 +765,7 @@ $$
 
 olarak seçildi. Phase margin'in $53^\circ$ seçilmesinin nedeni, kapalı çevrim $Q$ factor değerini yaklaşık $1$ yapan dengeli bir noktaya karşılık gelmesidir. Bu seçim hem kararlı hem de hızlı tepki için uygun bir denge sağlar.
 
-![Lead compensator Bode şekli](assets/docx-media/media/image21.png)
+![Lead compensator Bode şekli](assets/full-report/controller/image21-lead-compensator-bode-shape.png)
 
 *Şekil 5.7 - Lead compensator'ın faz artırıcı Bode davranışı.*
 
@@ -903,19 +945,20 @@ $$
 
 şeklindedir.
 
-![Lead compensator frekans cevabı](assets/docx-media/media/image22.png)
+![Lead compensator frekans cevabı](assets/full-report/controller/image22-lead-compensator-frequency-response.png)
 
 *Şekil 5.8 - Lead compensator'ın Bode diyagramı.*
 
 Lead compensator eklenmiş haliyle açık çevrim $T(s)$ Bode diyagramı:
 
-![Lead compensator eklenmiş açık çevrim Bode diyagramı](assets/docx-media/media/image23.png)
+![Lead compensator eklenmiş açık çevrim Bode diyagramı](assets/full-report/controller/image23-lead-compensated-open-loop-bode.png)
 
 *Şekil 5.9 - Lead compensator eklendikten sonra açık çevrim $T(s)$ Bode diyagramı.*
 
+<a id="lag-pi-compensator-eklenmesi"></a>
 ## 5.5. Lag (PI) Compensator Eklenmesi
 
-![Lag/PI compensator Bode şekli](assets/docx-media/media/image24.png)
+![Lag/PI compensator Bode şekli](assets/full-report/controller/image24-lag-pi-compensator-bode-shape.png)
 
 *Şekil 5.10 - Lag/PI compensator'ın düşük frekans kazancı artıran davranışı.*
 
@@ -967,6 +1010,7 @@ $$
 
 şeklindedir.
 
+<a id="pid-compensator-birlestirilmis-hali"></a>
 ## 5.6. PID Compensator Birleştirilmiş Hali
 
 Lead ve lag parçaları birleştirildiğinde kullanılacak PID compensator:
@@ -1001,10 +1045,11 @@ G_c(s)
 }
 $$
 
-![PID compensator Bode eğrisi](assets/docx-media/media/image25.png)
+![PID compensator Bode eğrisi](assets/full-report/controller/image25-pid-compensator-bode-curve.png)
 
 *Şekil 5.11 - Kullanılacak $G_c(s)$ PID compensator Bode eğrisi.*
 
+<a id="op-amp-ve-kutup-etkisi"></a>
 ## 5.7. Op-Amp ve Kutup Etkisi
 
 Tasarımda kullanılan LT1215 op-amp'ın yüksek frekanslara doğru gidildikçe kazancını koruyamaması bir kutup ile temsil edilir. Bu kutup:
@@ -1037,10 +1082,11 @@ seviyesindedir.
 
 Op-amp'ın bu kazanç değerini yaklaşık $100\,\text{kHz}$ frekansına kadar verebildiği, aşağıdaki voltage gain vs frequency grafiğinden kontrol edilir.
 
-![LT1215 op-amp gain-frequency grafiği](assets/docx-media/media/image26.png)
+![LT1215 op-amp gain-frequency grafiği](assets/full-report/controller/image26-lt1215-opamp-gain-frequency.png)
 
 *Şekil 5.12 - LT1215 op-amp için kazanç/frekans kısıtı.*
 
+<a id="acik-cevrim-transfer-fonksiyonu-ts"></a>
 ## 5.8. Açık Çevrim Transfer Fonksiyonu, $T(s)$
 
 Compensator, power stage ve sensor gain bir araya getirildiğinde açık çevrim transfer fonksiyonu:
@@ -1084,7 +1130,7 @@ T(s)
 }
 $$
 
-![Nihai açık çevrim Bode diyagramı](assets/docx-media/media/image27.png)
+![Nihai açık çevrim Bode diyagramı](assets/full-report/controller/image27-final-open-loop-bode.png)
 
 *Şekil 5.13 - Nihai açık çevrim transfer fonksiyonu $T(s)$ için Bode diyagramı.*
 
@@ -1097,62 +1143,62 @@ Bu sonuç hedeflenen $PM \approx 53^\circ$ ve $f_c \approx 10\,\text{kHz}$ değe
 
 Kaynak belgede hesaplanan açık çevrim transfer fonksiyonu ayrıca aşağıdaki görsellerle verilmiştir:
 
-![Hesaplanan açık çevrim transfer fonksiyonu](assets/docx-media/media/image28.png)
+![Hesaplanan açık çevrim transfer fonksiyonu](assets/full-report/controller/image28-calculated-open-loop-transfer-function.png)
 
 *Şekil 5.14 - Hesaplanan açık çevrim transfer fonksiyonu $T(s)$.*
 
 Hesaplanan $T(s)$ aşağıdaki kapalı çevrim transfer fonksiyonlarında kullanılacaktır.
 
-![T(s)'nin kapalı çevrim ifadelerinde kullanılması](assets/docx-media/media/image29.png)
+![T(s)'nin kapalı çevrim ifadelerinde kullanılması](assets/full-report/controller/image29-t-of-s-closed-loop-expressions.png)
 
 *Şekil 5.15 - $T(s)$ ile kurulan kapalı çevrim ifade.*
 
 Kaynak DOCX bu noktada 2x2 piksel boyutunda ek bir medya nesnesi içerir. Teknik figür gibi görünmese de kaynak medya setinin eksiksiz kalması için rapora bağlanmıştır.
 
 <a id="fig-docx-micro-30"></a>
-[image30.png](assets/docx-media/media/image30.png)
+[image30.png](assets/full-report/controller/image30-decorative-small-media-30.png)
 
-<img src="assets/docx-media/media/image30.png" alt="Kaynak DOCX küçük medya nesnesi image30" width="64">
+<img src="assets/full-report/controller/image30-decorative-small-media-30.png" alt="Kaynak DOCX küçük medya nesnesi image30" width="64">
 
 *Şekil 5.16 - Kaynak DOCX'te $T(s)$ kapalı çevrim ifadeleri çevresinde bulunan küçük medya nesnesi (`image30.png`).*
 
 Kapalı çevrim reference-to-output cevabı mavi grafiktir. Kapalı çevrim bandwidth'i ile açık çevrim crossover frekansı birbirine oldukça yakındır. Kapalı çevrimdeki $1/H$ çarpanı olmasaydı tam eşit olacaktı.
 
-![Kapalı çevrim reference-to-output cevabı](assets/docx-media/media/image31.png)
+![Kapalı çevrim reference-to-output cevabı](assets/full-report/controller/image31-closed-loop-reference-to-output-response.png)
 
 *Şekil 5.17 - Kapalı çevrim reference-to-output cevabı.*
 
 <a id="op-amp-devresi-gerceklemesi"></a>
-# 6. Op-Amp Devresi Gerçeklemesi
+# 6. Op-amp devresi -gerçeklemesi
 
 Transfer fonksiyonları bulunduktan sonra geri besleme, direnç ve sığaçlarla uygun şekilde gerçekleştirilecektir. Aşağıdaki ekran görüntüsü bitirilmiş op-amp gerçekleştirmesidir.
 
 Kaynak DOCX, Bölüm 6 başlığı çevresinde iki küçük medya nesnesi daha içerir. Bunlar 3x3 piksel boyutunda olduğu için ana teknik akışı değiştirmez; yine de kaynak medya setinin tamamı raporda izlenebilsin diye aşağıda ölçeklenerek gösterilmiştir.
 
 <a id="fig-docx-micro-32"></a>
-[image32.png](assets/docx-media/media/image32.png)
+[image32.png](assets/full-report/opamp/image32-decorative-small-media-32.png)
 
-<img src="assets/docx-media/media/image32.png" alt="Kaynak DOCX küçük medya nesnesi image32" width="72">
+<img src="assets/full-report/opamp/image32-decorative-small-media-32.png" alt="Kaynak DOCX küçük medya nesnesi image32" width="72">
 
 *Şekil 6.1 - Op-amp gerçekleştirme başlığı çevresinde bulunan küçük medya nesnesi (`image32.png`).*
 
 <a id="fig-docx-micro-33"></a>
-[image33.png](assets/docx-media/media/image33.png)
+[image33.png](assets/full-report/opamp/image33-decorative-small-media-33.png)
 
-<img src="assets/docx-media/media/image33.png" alt="Kaynak DOCX küçük medya nesnesi image33" width="72">
+<img src="assets/full-report/opamp/image33-decorative-small-media-33.png" alt="Kaynak DOCX küçük medya nesnesi image33" width="72">
 
 *Şekil 6.2 - Op-amp gerçekleştirme başlığı çevresinde bulunan küçük medya nesnesi (`image33.png`).*
 
-![Op-amp gerçekleştirme devresi](assets/docx-media/media/image34.png)
+![Op-amp gerçekleştirme devresi](assets/full-report/opamp/image34-opamp-implementation-circuit.png)
 
 *Şekil 6.3 - Sensor gain ve compensator ağı dahil op-amp gerçekleştirme devresi.*
 
 <a id="sensor-gain-hs"></a>
-## 6.1. Sensor Gain, $H(s)$
+## 6.1. Sensor Gain (H(s))
 
 Sensor gain için gerilim bölücü kullanılır.
 
-![Gerilim bölücü ile H(s) sensor gain gerçekleştirmesi](assets/docx-media/media/image35.png)
+![Gerilim bölücü ile H(s) sensor gain gerçekleştirmesi](assets/full-report/opamp/image35-sensor-gain-voltage-divider.png)
 
 *Şekil 6.4 - $H(s)$ sensor gain için gerilim bölücü.*
 
@@ -1191,13 +1237,13 @@ sensör kazancına pratik olarak yakındır.
 
 Compensator için hedeflenen frekanslar ve kazançlar aşağıdaki Bode davranışına göre belirlenmiştir. Amaç, direnç ve sığaç kullanarak bu Bode eğrisindeki kazanç davranışını elde etmektir.
 
-![Compensator için hedef frekans ve kazanç davranışı](assets/docx-media/media/image36.png)
+![Compensator için hedef frekans ve kazanç davranışı](assets/full-report/opamp/image36-compensator-target-frequency-gain.png)
 
 *Şekil 6.5 - Gerçeklenecek compensator frekansları ve kazançları.*
 
 $V_{ref}$ sabit olan bir tasarımda, $V_{ref}$ önündeki empedans ağını kullanmaya gerek yoktur. Bu nedenle sadeleştirilmiş compensator devresi aşağıdaki gibidir.
 
-![Sadeleştirilmiş compensator devresi](assets/docx-media/media/image37.png)
+![Sadeleştirilmiş compensator devresi](assets/full-report/opamp/image37-simplified-compensator-circuit.png)
 
 *Şekil 6.6 - $V_{ref}$ sabit olduğunda kullanılan sadeleştirilmiş compensator ağı.*
 
@@ -1226,7 +1272,7 @@ olarak ayrıştırılır.
 
 ### 6.2.1. $R_2$ ve $C_2$ ile Lag Sıfırının Gerçeklenmesi
 
-![R2 ve C2 empedans karşılaştırması](assets/docx-media/media/image38.png)
+![R2 ve C2 empedans karşılaştırması](assets/full-report/opamp/image38-r2-c2-impedance-comparison.png)
 
 *Şekil 6.7 - $R_2$ sabit empedansı ve $Z_{C2}$ eğimi.*
 
@@ -1268,7 +1314,7 @@ olur.
 
 ### 6.2.2. $+20\,\text{dB/dec}$ Eğimin Gerçeklenmesi
 
-![Sığaç empedansının terslenmesiyle +20 dB/dec davranış](assets/docx-media/media/image39.png)
+![Sığaç empedansının terslenmesiyle +20 dB/dec davranış](assets/full-report/opamp/image39-capacitor-impedance-plus-20db-dec.png)
 
 *Şekil 6.8 - Bobin davranışına benzer $+20\,\text{dB/dec}$ eğimin sığaç empedansının terslenmesiyle elde edilmesi.*
 
@@ -1278,11 +1324,11 @@ Bobin davranışını andıran $+20\,\text{dB/dec}$ eğim, sığaç empedansın�
 
 $Z_1(s)$ ve $Z_2(s)$ seri bağlı alt elemanlardan oluşur. Bu yüzden belirli frekans aralıklarında bileşenlerden büyük olan empedans eşdeğer davranışı belirler.
 
-![Z1 ve Z2 empedans ağı 1](assets/docx-media/media/image40.png)
+![Z1 ve Z2 empedans ağı 1](assets/full-report/opamp/image40-z1-z2-impedance-network-1.png)
 
-![Z1 ve Z2 empedans ağı 2](assets/docx-media/media/image38.png)
+![Z1 ve Z2 empedans ağı 2](assets/full-report/opamp/image38-r2-c2-impedance-comparison.png)
 
-![Z1 ve Z2 empedans ağı 3](assets/docx-media/media/image41.png)
+![Z1 ve Z2 empedans ağı 3](assets/full-report/opamp/image41-z1-z2-impedance-network-2.png)
 
 *Şekil 6.9 - $Z_1(s)$ ve $Z_2(s)$ için frekans bölgesine göre dominant empedanslar.*
 
@@ -1373,9 +1419,10 @@ elde edilir.
 Bu değerler, Bölüm 5'te hedeflenen $G_c(s)$ compensator davranışını op-amp devresi üzerinde gerçekleştirmek için kullanılan pratik eleman değerleridir.
 
 <a id="benzetim-sonuclari"></a>
-# 7. Benzetim Sonuçları
+# 7. Benzetim sonuçları
 
-Bu bölümde amaç, tasarım gereksinimlerini karşılayabilen bir devre tasarlandığını göstermek ve önceki bölümlerde kağıt-kalem ile yapılan hesapların LTspice benzetimleriyle doğrulanmasını sağlamaktır. Bu nedenle bulunan değerler olduğu gibi LTspice devresinde kullanılmış, sonuçlar görsellerle birlikte raporlanmıştır.
+Bu bölümde amaç, tasarım gereksinimlerini karşılayabilen bir devre tasarlandığını göstermek ve önceki bölümlerde kağıt-kalem ile yapılan hesapların LTspice benzetimleriyle doğrulanmasını sağlamaktır.
+Bu nedenle bulunan değerler olduğu gibi LTspice devresinde kullanılmış, sonuçlar görsellerle birlikte raporlanmıştır.
 
 <a id="tasarim-gereksinimleri"></a>
 ## 7.1. Tasarım Gereksinimleri
@@ -1398,7 +1445,7 @@ Notlar:
 2. Output voltage, minimum ve maksimum yük arasındaki adımlarda belirtilen sınırların dışına çıkmamalıdır.
 
 <a id="benzetimde-kullanilan-elemanlar-ve-parametreler"></a>
-## 7.2. Benzetimde Kullanılan Elemanlar ve Parametreler
+## 7.2. Benzetimde kullanılan elemanlar ve parametreler
 
 | Parametre / eleman | Değer |
 |---|---:|
@@ -1444,17 +1491,17 @@ $$
 Bu değerler hedeflenen $50-125\,\text{W}$ aralığının çok yakınında ve pratik tolerans içinde kabul edilmiştir.
 
 <a id="fig-output-power-50w"></a>
-![Yaklaşık 50 W çıkış gücü çalışma noktası](assets/docx-media/media/image42.png)
+![Yaklaşık 50 W çıkış gücü çalışma noktası](assets/full-report/simulation/image42-output-power-50w-operating-point.png)
 
 *Şekil 7.1 - Düşük güç çalışma noktasında $P_{out}\approx49.5957\,\text{W}$ ölçümü.*
 
 <a id="fig-output-power-125w"></a>
-![Yaklaşık 125 W çıkış gücü çalışma noktası](assets/docx-media/media/image43.png)
+![Yaklaşık 125 W çıkış gücü çalışma noktası](assets/full-report/simulation/image43-output-power-125w-operating-point.png)
 
 *Şekil 7.2 - Yüksek güç çalışma noktasında $P_{out}\approx124.1839\,\text{W}$ ölçümü.*
 
 <a id="output-voltage-static-requirement"></a>
-## 7.4. Output Voltage Static Requirement
+## 7.4. Output Voltage (static requirement)
 
 İstenen statik çıkış gerilimi:
 
@@ -1471,12 +1518,12 @@ $$
 olarak okunmaktadır. Her iki durumda da değer $14\,\text{V}\pm3\%$ statik gereksiniminin içindedir.
 
 <a id="fig-static-output"></a>
-![Statik çıkış gerilimi ölçümü](assets/docx-media/media/image44.png)
+![Statik çıkış gerilimi ölçümü](assets/full-report/simulation/image44-static-output-voltage-measurement.png)
 
 *Şekil 7.3 - Statik çıkış gerilimi ölçümü; kaynak raporda yaklaşık $\%1.30$ sapma not edilmiştir.*
 
 <a id="output-voltage-transient-limits"></a>
-## 7.5. Output Voltage Transient Limits
+## 7.5. Output Voltage (transient limits)
 
 İstenen transient sınırı:
 
@@ -1503,12 +1550,12 @@ olarak verilmiştir. Bu değer $20\%$ transient sınırının içindedir.
 Grafikte çıkış geriliminin düşük akım/yük geçişinde yaklaşık $12.70\,\text{V}$ seviyesine indiği ve üst yönde yaklaşık $15.17\,\text{V}$ seviyesine çıktığı görülür. Yaklaşık $0.3\,\text{ms}$ içinde toparlanma not edilmiştir.
 
 <a id="fig-transient-output"></a>
-![Transient çıkış gerilimi ve yük akımı davranışı](assets/docx-media/media/image45.png)
+![Transient çıkış gerilimi ve yük akımı davranışı](assets/full-report/simulation/image45-transient-output-voltage-load-current.png)
 
 *Şekil 7.4 - Minimum ve maksimum yük akımı arasında transient çıkış gerilimi davranışı.*
 
 <a id="allowed-output-voltage-ripple"></a>
-## 7.6. Allowed Output Voltage Ripple
+## 7.6. Allowed output voltage ripple (p-p, any R load)
 
 İstenen çıkış ripple sınırı:
 
@@ -1525,7 +1572,7 @@ $$
 olarak ölçülmüştür. Bu değer $100\,\text{mV}_{p-p}$ sınırının belirgin biçimde altındadır.
 
 <a id="fig-output-ripple"></a>
-![Çıkış ripple ölçümü](assets/docx-media/media/image46.png)
+![Çıkış ripple ölçümü](assets/full-report/simulation/image46-output-ripple-measurement.png)
 
 *Şekil 7.5 - Kararlı halde $V_{out}$ ripple ölçümü: yaklaşık $37.38\,\text{mV}_{p-p}$.*
 
@@ -1559,11 +1606,11 @@ $$
 demektir.
 
 <a id="fig-eff-36v"></a>
-![36 V girişte giriş gücü ölçümü](assets/docx-media/media/image47.png)
+![36 V girişte giriş gücü ölçümü](assets/full-report/simulation/image47-input-power-36v-measurement.png)
 
 *Şekil 7.6 - $V_g=36\,\text{V}$ ve $R=1.569\,\Omega$ için giriş gücü ölçümü; ortalama $P_{in}\approx126.6\,\text{W}$.*
 
-![36 V girişte çıkış gücü ölçümü](assets/docx-media/media/image48.png)
+![36 V girişte çıkış gücü ölçümü](assets/full-report/simulation/image48-output-power-36v-measurement.png)
 
 *Şekil 7.7 - $V_g=36\,\text{V}$ ve $R=1.569\,\Omega$ için çıkış gücü ölçümü; ortalama $P_{out}\approx123.8\,\text{W}$.*
 
@@ -1576,11 +1623,11 @@ Diğer çalışma noktaları:
 | $V_g=36\,\text{V}$, $R=3.921\,\Omega$ | $49.542\,\text{W}/50.482\,\text{W}$ | $98.14\%$ |
 
 <a id="fig-eff-24v"></a>
-![24 V girişte çıkış gücü ölçümü](assets/docx-media/media/image49.png)
+![24 V girişte çıkış gücü ölçümü](assets/full-report/simulation/image49-output-power-24v-measurement.png)
 
 *Şekil 7.8 - $V_g=24\,\text{V}$, $R=1.569\,\Omega$ için $P_{out}\approx124.01\,\text{W}$.*
 
-![24 V girişte giriş gücü ölçümü](assets/docx-media/media/image50.png)
+![24 V girişte giriş gücü ölçümü](assets/full-report/simulation/image50-input-power-24v-measurement.png)
 
 *Şekil 7.9 - $V_g=24\,\text{V}$, $R=1.569\,\Omega$ için $P_{in}\approx126.55\,\text{W}$.*
 
@@ -1606,7 +1653,7 @@ Doğrulama sonuçları özetle:
 | Verim | Yaklaşık $97.78\%$ ana raporlanan çalışma noktası; tüm raporlanan noktalar $\%90$ üzerinde |
 
 <a id="projenin-gelecegi"></a>
-# 8. Projenin Geleceği
+# 8. PROJENIN GELECEĞİ
 
 Projenin devamında yapılacaklar:
 
@@ -1620,12 +1667,12 @@ Projenin devamında yapılacaklar:
 - Bobinle ilgili hesaplar detaylandırılacak.
 - Altium'da çizim yapılacak.
 
-![LM5146 tipik uygulama şeması](assets/docx-media/media/image51.png)
+![LM5146 tipik uygulama şeması](assets/full-report/future-work/image51-lm5146-typical-application.png)
 
 *Şekil 8.1 - LM5146 tabanlı sonraki tasarım yönü için tipik uygulama şeması.*
 
 <a id="kaynaklar"></a>
-# Kaynaklar
+# KAYNAKLAR
 
 [1] R. W. Erickson and D. Maksimovic, *Fundamentals of Power Electronics*, 3rd ed., Cham: Springer, 2020.
 
@@ -1643,25 +1690,26 @@ Projenin devamında yapılacaklar:
 
 ## Repo İçindeki Reference / Source Material Notu
 
-Repo içinde `G5_mit6_622_s23_designproj.pdf`, `G32_lm5146-q1.pdf` ve power electronics kaynak kitabı PDF/TXT dosyaları source/reference material olarak durmaktadır. Üçüncü taraf PDF'lerin lisans ve dağıtım durumu bu çalışma içinde ayrıca doğrulanmadı; bu nedenle teknik dokümantasyonda nötr biçimde referans materyali olarak konumlandırılmıştır.
+Repo içinde `G5_mit6_622_s23_designproj.pdf`, `G32_lm5146-q1.pdf` ve power electronics kaynak kitabı PDF/TXT dosyaları source/reference material olarak durmaktadır.
+Üçüncü taraf PDF'lerin lisans ve dağıtım durumu bu çalışma içinde ayrıca doğrulanmadı; bu nedenle teknik dokümantasyonda nötr biçimde referans materyali olarak konumlandırılmıştır.
 
 <a id="ekler"></a>
-# Ekler
+# EKLER
 
 <a id="ek-1-sigac-verisayfasi"></a>
 ## EK-1. Sığaç Verisayfası
 
 Kaynak raporda seçilen çıkış sığacı için veri sayfası kesiti verilmiştir. $82\,\mu\text{F}$ sınıfındaki sığaç ve ESR/ripple bilgileri güç katı hesabında kullanılan $C$ ve $R_{ESR}$ seçimlerini destekler.
 
-![Sığaç veri sayfası kesiti](assets/docx-media/media/image52.png)
+![Sığaç veri sayfası kesiti](assets/full-report/appendices/image52-output-capacitor-datasheet-excerpt.png)
 
 *Şekil E.1 - Sığaç veri sayfası kesiti; $82\,\mu\text{F}$ satırı kaynak raporda işaretlenmiştir.*
 
 <a id="ek-2-genel-gorunum"></a>
-## EK-2. Genel Görünüm
+## EK-2. Genel görünüm
 
 Kaynak raporda LTspice devresinin genel görünümü de ek olarak verilmiştir. Bu devre görünümünde güç katı, bootstrap/driver yapısı, PWM, LT1215 op-amp compensator, feedback dirençleri ve yük yapısı birlikte görülür.
 
-![LTspice devresinin genel görünümü](assets/docx-media/media/image53.png)
+![LTspice devresinin genel görünümü](assets/full-report/appendices/image53-ltspice-circuit-overview.png)
 
 *Şekil E.2 - Senkron buck converter LTspice devresinin genel görünümü.*

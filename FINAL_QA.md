@@ -30,7 +30,7 @@ Bu dosya, README landing page, `docs/` giriş sayfası ve tam rapor için son ka
 | Verification / full-report çelişkisi | Geçti | `verification_value_mismatches=0`; kritik değerler iki dosyada da aynı: `49.5957`, `124.1839`, `1.30`, `8.58`, `37.38`, `97.78`. |
 | Korunan mevcut dosyalar | Geçti | Kaynak DOCX/PDF, LTspice klasörü, görsel klasörleri ve ana referanslar README/docs index üzerinden bağlandı. |
 | Summary-only kalan yer | Geçti | `summary_only_hits=0`; README özet/navigasyon, teknik içerik uzun formda `docs/full-report.md` içinde. |
-| Açık TODO kalan yer | Geçti | `todo_hits=0`. |
+| Açık yapılacak-notu kalan yer | Geçti | `todo_hits=0`. |
 
 ## Kaynak DOCX ile Repo Çıktısı Karşılaştırması
 

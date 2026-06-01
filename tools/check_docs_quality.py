@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import re
 import sys
 import unicodedata
@@ -137,9 +138,27 @@ def count_full_report_images() -> tuple[int, list[str]]:
 
 def docx_media_usage() -> tuple[int, int, list[str]]:
     text = read(Path("docs/full-report.md"))
-    refs = re.findall(r"!\[[^\]]*\]\((assets/docx-media/media/[^)]+)\)", text)
-    refs.extend(re.findall(r'<img\s+[^>]*src="(assets/docx-media/media/[^"]+)"', text))
-    linked = {Path(ref).name for ref in refs}
+    refs = re.findall(r"\[[^\]]+\]\((assets/(?:docx-media/media|full-report)/[^)]+)\)", text)
+    refs.extend(re.findall(r'<img\s+[^>]*src="(assets/(?:docx-media/media|full-report)/[^"]+)"', text))
+
+    semantic_to_original: dict[str, str] = {}
+    manifest = ROOT / "docs/assets/full-report/manifest.json"
+    if manifest.exists():
+        data = json.loads(manifest.read_text(encoding="utf-8"))
+        for asset in data.get("assets", []):
+            filename = asset.get("filename")
+            original = asset.get("original_media")
+            if not filename or not original:
+                continue
+            semantic_to_original[Path(filename).as_posix().removeprefix("docs/")] = Path(original).name
+
+    linked: set[str] = set()
+    for ref in refs:
+        if ref.startswith("assets/docx-media/media/"):
+            linked.add(Path(ref).name)
+        elif ref in semantic_to_original:
+            linked.add(semantic_to_original[ref])
+
     media_dir = ROOT / "docs/assets/docx-media/media"
     media_files = sorted(path.name for path in media_dir.iterdir() if path.is_file())
     unlinked = [name for name in media_files if name not in linked]

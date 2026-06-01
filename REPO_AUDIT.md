@@ -176,7 +176,7 @@ Ornek birebir eslesmeler:
 
 - Kayip gorsel riski: DOCX'te 53 medya dosyasi var; repoda temiz adlandirilmis set 24, kismi DOCX cikarimi 15 dosya.
 - Bozuk denklem riski: DOCX'te 151 matematik nesnesi var. Markdown'a otomatik aktarimda bosluklar, semboller veya kesirler bozulabilir.
-- Turkce karakter riski: Mevcut README'de `Â±`, `âœ…`, `Î”` benzeri encoding bozulmalari gorunuyor. Yeni dosyalar UTF-8 kalmali, link slug'lari ASCII olusturulmali.
+- Turkce karakter riski: Eski dokumantasyon ciktisinda plus/minus, check mark ve delta sembollerinde encoding bozulmalari gorulmustu. Yeni dosyalar UTF-8 kalmali, link slug'lari ASCII olusturulmali.
 - Kirik link riski: Dosya adlarinda bosluk, apostrof, Turkce karakter ve parantez var. GitHub linklerinde encoding ve case hassasiyeti kontrol edilmeli.
 - Asiri uzun README riski: Tum DOCX README'ye tasinmamalidir. README bir giris ve navigasyon dosyasi olmali; teknik icerik `docs/` altina bolunmeli.
 - Buyuk dosya riski: `LTspice_AveragedSwitchModelingSimulation/SyncBuck_switching_CL.raw` yaklasik 523 MB. GitHub icin uygun olmayabilir.

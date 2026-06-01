@@ -56,7 +56,8 @@ Bu sayfa, repo içindeki uzun teknik rapora ve destek dosyalarına düzenli giri
 
 | Path | Açıklama |
 |---|---|
-| [assets/docx-media/media/](assets/docx-media/media/) | Rapor içinde kullanılan temiz medya seti |
+| [assets/full-report/](assets/full-report/) | Tam raporda kullanılan semantik, temiz adlandırılmış medya seti |
+| [assets/docx-media/media/](assets/docx-media/media/) | DOCX içinden çıkarılan kaynak medya seti |
 | [assets/docx-media/raw/](assets/docx-media/raw/) | DOCX içinden çıkarılan ham medya |
 | [originals/](originals/) | Kaynak DOCX/PDF kopyaları |
 | [../images/readme/](../images/readme/) | Eski README görsel seti; karşılaştırma ve yeniden kullanım için korunuyor |
@@ -89,4 +90,5 @@ Ana simülasyon klasörü: [../LTspice_AveragedSwitchModelingSimulation/](../LTs
 
 ## Kalan Manuel Takip
 
-Input voltage transient, input current ripple ve sıcaklık sweep gereksinimleri hedef olarak korunmuştur; kaynak raporda bunları ayrı dalga şekliyle kapatan kanıt bulunmadığı için takip gerektirir. Çok küçük `image12.png`, `image13.png`, `image30.png`, `image32.png`, `image33.png` medya nesneleri görünür teknik figür gibi durmadığından ana akışa gömülmemiştir.
+Input voltage transient, input current ripple ve sıcaklık sweep gereksinimleri hedef olarak korunmuştur; kaynak raporda bunları ayrı dalga şekliyle kapatan kanıt bulunmadığı için takip gerektirir.
+Çok küçük `image12.png`, `image13.png`, `image30.png`, `image32.png`, `image33.png` medya nesneleri teknik figür gibi görünmediğinden `docs/full-report.md` içinde ölçeklenmiş küçük kaynak nesneleri olarak korunmuştur.
